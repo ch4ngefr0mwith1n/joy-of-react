@@ -1,15 +1,14 @@
 import React from 'react';
 import styles from './Toggle.module.css';
 
-function Toggle({
+const Toggle = ({
   label,
   checked,
   handleToggle,
   backdropColor = 'white',
   size = 16,
-}) {
-  // vađenje ID-a:
-  const buttonId = React.useId();
+}) => {
+  const id = React.useId();
 
   const padding = size * 0.1;
   const width = size * 2 + padding * 2;
@@ -29,13 +28,11 @@ function Toggle({
 
   return (
     <div className={styles.wrapper}>
-      {/* uvezivanje "button"-a sa "label"-om */}
-      <label htmlFor={buttonId}>
+      <label htmlFor={id}>
         {label}
       </label>
       <button
-        // uvezivanje "button"-a sa "label"-om
-        id={buttonId}
+        id={id}
         className={styles.toggle}
         type="button"
         aria-pressed={checked}
